@@ -35,18 +35,21 @@ public class Login extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Login-Bookstore");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Bookstore - Login");
 
+        lblUsername.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         lblUsername.setText("Username");
 
         txtUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUsername.setToolTipText("Enter Username");
 
+        lblPassword.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         lblPassword.setText("Password");
 
         txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        btnExit.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +57,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        btnLogin.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         btnLogin.setText("Login");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -104,7 +108,7 @@ public class Login extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setSize(new java.awt.Dimension(400, 128));
+        setSize(new java.awt.Dimension(400, 156));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
