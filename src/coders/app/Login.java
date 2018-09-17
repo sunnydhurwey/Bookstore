@@ -37,16 +37,23 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bookstore - Login");
+        setResizable(false);
+
+        jPanel1.setBackground(java.awt.Color.gray);
 
         lblUsername.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        lblUsername.setForeground(java.awt.Color.white);
         lblUsername.setText("Username");
 
+        txtUsername.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         txtUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUsername.setToolTipText("Enter Username");
 
         lblPassword.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        lblPassword.setForeground(java.awt.Color.white);
         lblPassword.setText("Password");
 
+        txtPassword.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         txtPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         btnExit.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -105,10 +112,10 @@ public class Login extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(400, 156));
+        setSize(new java.awt.Dimension(400, 158));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

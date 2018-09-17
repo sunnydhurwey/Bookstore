@@ -5,6 +5,8 @@
  */
 package coders.app;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author sunny
@@ -29,10 +31,43 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        mnuAdministration = new javax.swing.JMenu();
+        mnuManageUser = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        mnuManageFirmDetails = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        mnuExit = new javax.swing.JMenuItem();
+        mnuPurchase = new javax.swing.JMenu();
+        mnuPurchaseInward = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        mnuPurchaseReturn = new javax.swing.JMenuItem();
+        mnuSales = new javax.swing.JMenu();
+        mnuPointOfSale = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
+        mnuSalesReturn = new javax.swing.JMenuItem();
+        jSeparator7 = new javax.swing.JPopupMenu.Separator();
+        mnuSalesPackage = new javax.swing.JMenuItem();
+        mnuGST = new javax.swing.JMenu();
+        mnuManageGSTRate = new javax.swing.JMenuItem();
+        mnuAccounts = new javax.swing.JMenu();
+        mnuPurchaseAccount = new javax.swing.JMenuItem();
+        jSeparator5 = new javax.swing.JPopupMenu.Separator();
+        mnuSalesAccount = new javax.swing.JMenuItem();
+        mnuVendors = new javax.swing.JMenu();
+        mnuBookNoteVendor = new javax.swing.JMenuItem();
+        jSeparator6 = new javax.swing.JPopupMenu.Separator();
+        mnuStationaryVendors = new javax.swing.JMenuItem();
+        mnuAbout = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Dashboard - The Bookstore :: Developed by Coders Technologies");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+
+        jPanel1.setBackground(java.awt.Color.gray);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -45,11 +80,98 @@ public class Dashboard extends javax.swing.JFrame {
             .addGap(0, 537, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        mnuAdministration.setText("Adminstration");
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        mnuManageUser.setText("Manage User");
+        mnuManageUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuManageUserActionPerformed(evt);
+            }
+        });
+        mnuAdministration.add(mnuManageUser);
+        mnuAdministration.add(jSeparator1);
+
+        mnuManageFirmDetails.setText("Manage Firm Details");
+        mnuManageFirmDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuManageFirmDetailsActionPerformed(evt);
+            }
+        });
+        mnuAdministration.add(mnuManageFirmDetails);
+        mnuAdministration.add(jSeparator3);
+
+        mnuExit.setText("Exit");
+        mnuExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuExitActionPerformed(evt);
+            }
+        });
+        mnuAdministration.add(mnuExit);
+
+        jMenuBar1.add(mnuAdministration);
+
+        mnuPurchase.setText("Purchase");
+
+        mnuPurchaseInward.setText("Purchase Inward");
+        mnuPurchaseInward.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuPurchaseInwardActionPerformed(evt);
+            }
+        });
+        mnuPurchase.add(mnuPurchaseInward);
+        mnuPurchase.add(jSeparator2);
+
+        mnuPurchaseReturn.setText("Purchase Return");
+        mnuPurchase.add(mnuPurchaseReturn);
+
+        jMenuBar1.add(mnuPurchase);
+
+        mnuSales.setText("Sales");
+
+        mnuPointOfSale.setText("Point of Sale");
+        mnuSales.add(mnuPointOfSale);
+        mnuSales.add(jSeparator4);
+
+        mnuSalesReturn.setText("Sales Return");
+        mnuSales.add(mnuSalesReturn);
+        mnuSales.add(jSeparator7);
+
+        mnuSalesPackage.setText("Manage Sales Package");
+        mnuSales.add(mnuSalesPackage);
+
+        jMenuBar1.add(mnuSales);
+
+        mnuGST.setText("GST");
+
+        mnuManageGSTRate.setText("Manage GST Rates");
+        mnuGST.add(mnuManageGSTRate);
+
+        jMenuBar1.add(mnuGST);
+
+        mnuAccounts.setText("Accounts");
+
+        mnuPurchaseAccount.setText("Purchase Account");
+        mnuAccounts.add(mnuPurchaseAccount);
+        mnuAccounts.add(jSeparator5);
+
+        mnuSalesAccount.setText("Sales Account");
+        mnuAccounts.add(mnuSalesAccount);
+
+        jMenuBar1.add(mnuAccounts);
+
+        mnuVendors.setText("Vendors");
+
+        mnuBookNoteVendor.setText("Books & Notebook Vendors");
+        mnuVendors.add(mnuBookNoteVendor);
+        mnuVendors.add(jSeparator6);
+
+        mnuStationaryVendors.setText("Stationary Vendors");
+        mnuVendors.add(mnuStationaryVendors);
+
+        jMenuBar1.add(mnuVendors);
+
+        mnuAbout.setText("About");
+        jMenuBar1.add(mnuAbout);
 
         setJMenuBar(jMenuBar1);
 
@@ -67,6 +189,31 @@ public class Dashboard extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1282, 588));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    }//GEN-LAST:event_formWindowOpened
+
+    private void mnuManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuManageUserActionPerformed
+        // TODO add your handling code here:
+        ManageUser.getObj().setVisible(true);
+    }//GEN-LAST:event_mnuManageUserActionPerformed
+
+    private void mnuManageFirmDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuManageFirmDetailsActionPerformed
+        // TODO add your handling code here:
+        ManageFirmDetails.getObj().setVisible(true);
+    }//GEN-LAST:event_mnuManageFirmDetailsActionPerformed
+
+    private void mnuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuExitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_mnuExitActionPerformed
+
+    private void mnuPurchaseInwardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuPurchaseInwardActionPerformed
+        // TODO add your handling code here:
+        PurchaseInward.getObj().setVisible(true);
+    }//GEN-LAST:event_mnuPurchaseInwardActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,9 +251,34 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
+    private javax.swing.JPopupMenu.Separator jSeparator5;
+    private javax.swing.JPopupMenu.Separator jSeparator6;
+    private javax.swing.JPopupMenu.Separator jSeparator7;
+    private javax.swing.JMenu mnuAbout;
+    private javax.swing.JMenu mnuAccounts;
+    private javax.swing.JMenu mnuAdministration;
+    private javax.swing.JMenuItem mnuBookNoteVendor;
+    private javax.swing.JMenuItem mnuExit;
+    private javax.swing.JMenu mnuGST;
+    private javax.swing.JMenuItem mnuManageFirmDetails;
+    private javax.swing.JMenuItem mnuManageGSTRate;
+    private javax.swing.JMenuItem mnuManageUser;
+    private javax.swing.JMenuItem mnuPointOfSale;
+    private javax.swing.JMenu mnuPurchase;
+    private javax.swing.JMenuItem mnuPurchaseAccount;
+    private javax.swing.JMenuItem mnuPurchaseInward;
+    private javax.swing.JMenuItem mnuPurchaseReturn;
+    private javax.swing.JMenu mnuSales;
+    private javax.swing.JMenuItem mnuSalesAccount;
+    private javax.swing.JMenuItem mnuSalesPackage;
+    private javax.swing.JMenuItem mnuSalesReturn;
+    private javax.swing.JMenuItem mnuStationaryVendors;
+    private javax.swing.JMenu mnuVendors;
     // End of variables declaration//GEN-END:variables
 }
