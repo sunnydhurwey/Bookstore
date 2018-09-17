@@ -57,6 +57,7 @@ public class ManageUser extends javax.swing.JFrame {
         btnUpdateUser = new javax.swing.JButton();
         btnDeleteUser = new javax.swing.JButton();
         txtPassword = new javax.swing.JTextField();
+        btnReset = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUsers = new javax.swing.JTable();
 
@@ -104,18 +105,32 @@ public class ManageUser extends javax.swing.JFrame {
                 btnAddUserActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 110, -1));
+        jPanel1.add(btnAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 90, -1));
 
         btnUpdateUser.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         btnUpdateUser.setText("UPDATE");
-        jPanel1.add(btnUpdateUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 108, -1));
+        btnUpdateUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateUserActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnUpdateUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 70, -1));
 
         btnDeleteUser.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         btnDeleteUser.setText("DELETE");
-        jPanel1.add(btnDeleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 120, -1));
+        jPanel1.add(btnDeleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 90, -1));
 
         txtPassword.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 350, -1));
+
+        btnReset.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        btnReset.setText("RESET");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 70, -1));
 
         tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -128,6 +143,11 @@ public class ManageUser extends javax.swing.JFrame {
 
             }
         ));
+        tblUsers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblUsersMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblUsers);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,7 +175,12 @@ public class ManageUser extends javax.swing.JFrame {
         // TODO add your handling code here:
         obj=null;
     }//GEN-LAST:event_formWindowClosing
-
+	//Program to clear fields
+	public void clearField(){
+		txtName.setText("");
+		txtUsername.setText("");
+		txtPassword.setText("");
+	}
 	//Program to add users to database
 	public void addUser(){
 		try{
@@ -175,6 +200,8 @@ public class ManageUser extends javax.swing.JFrame {
         // TODO add your handling code here:
 		if(!"".equals(txtName.getText()) && !"".equals(txtUsername.getText()) && !"".equals(txtPassword.getText())){
 			addUser();
+			getDataToTable();
+			clearField();
 		}else{
 			JOptionPane.showMessageDialog(null, "Empty fields cannot be saved. Please enter User details.","Empty Field Detected",JOptionPane.ERROR_MESSAGE);
 		}
@@ -196,6 +223,64 @@ public class ManageUser extends javax.swing.JFrame {
         // TODO add your handling code here:
 		getDataToTable();
     }//GEN-LAST:event_formWindowOpened
+
+	//Program to get table data to field
+	String uID;
+	public void getTblDataToField(){
+		try{
+			int row=tblUsers.getSelectedRow();
+			uID=tblUsers.getModel().getValueAt(row, 0).toString();
+			String sql="Select * from users where uid='"+uID+"'";
+			pst=conn.prepareStatement(sql);
+			rs=pst.executeQuery();
+			if(rs.next()){
+				txtName.setText(rs.getString("name"));
+				txtUsername.setText(rs.getString("username"));
+				txtPassword.setText(rs.getString("password"));
+				btnAddUser.setEnabled(false);
+				btnUpdateUser.setEnabled(true);
+			}
+		}catch(SQLException e){
+			JOptionPane.showMessageDialog(null, e,"getTblDataToField() Exception",JOptionPane.ERROR_MESSAGE);
+		}
+	}
+    private void tblUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsersMouseClicked
+        // TODO add your handling code here:
+		getTblDataToField();
+    }//GEN-LAST:event_tblUsersMouseClicked
+
+	//Program to reset form
+	public void resetForm(){
+		txtName.setText("");
+		txtUsername.setText("");
+		txtPassword.setText("");
+		btnAddUser.setEnabled(true);
+		btnUpdateUser.setEnabled(false);
+		btnDeleteUser.setEnabled(true);
+	}
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+		resetForm();
+		getDataToTable();
+    }//GEN-LAST:event_btnResetActionPerformed
+
+	//Program to update existing user details
+	public void updateUser(){
+		try{
+			String sql="Update users set name='"+txtName.getText()+"', username='"+txtUsername.getText()+"', password='"+txtPassword.getText()+"'";
+			pst=conn.prepareStatement(sql);
+			pst.execute();
+			JOptionPane.showMessageDialog(null, "User data has been updated successfully","Data Updated",JOptionPane.INFORMATION_MESSAGE);
+			pst.close();
+		}catch(SQLException e){
+			JOptionPane.showMessageDialog(null, e,"updateUser() Exception",JOptionPane.ERROR_MESSAGE);
+		}
+	}
+    private void btnUpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateUserActionPerformed
+        // TODO add your handling code here:
+		updateUser();
+		resetForm();
+    }//GEN-LAST:event_btnUpdateUserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,6 +321,7 @@ public class ManageUser extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnDeleteUser;
+    private javax.swing.JButton btnReset;
     private javax.swing.JButton btnUpdateUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
