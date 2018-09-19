@@ -7,7 +7,9 @@ package coders.app;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import javax.swing.ImageIcon;
-
+import java.awt.HeadlessException;
+import javax.swing.JFrame;
+import net.proteanit.sql.DbUtils;
 /**
  *
  * @author sunny
@@ -16,7 +18,7 @@ public class ManageFirmDetails extends javax.swing.JFrame {
     
     Connection conn=null;
     ResultSet rs=null;
-    PreparedStatement ps=null;
+    PreparedStatement pst=null;
 
     /**
      * Creates new form ManageFirmDetails
@@ -63,6 +65,9 @@ public class ManageFirmDetails extends javax.swing.JFrame {
         setTitle("Manage Firm Details - The Bookstore");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
@@ -108,6 +113,11 @@ public class ManageFirmDetails extends javax.swing.JFrame {
 
         btnClear.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         btnClear.setText("CLEAR");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -173,11 +183,13 @@ public class ManageFirmDetails extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdd)
+                    .addComponent(btnClear))
                 .addContainerGap())
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAdd, btnClear, btnUpdate});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -190,7 +202,7 @@ public class ManageFirmDetails extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(612, 266));
+        setSize(new java.awt.Dimension(612, 244));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -198,6 +210,43 @@ public class ManageFirmDetails extends javax.swing.JFrame {
         // TODO add your handling code here:
         obj=null;
     }//GEN-LAST:event_formWindowClosing
+
+	//Program to clear fields
+	public void clear(){
+		txtFirmName.setText("");
+		txtGSTIN.setText("");
+		txtAddress.setText("");
+		txtContact.setText("");
+		txtEmail.setText("");
+	}
+	//Program to get existing firm details from database
+	int fid;
+	public void getFirmDetails(){
+		try{
+			String sql="SELECT * FROM firmdetails";
+			pst=conn.prepareStatement(sql);
+			rs=pst.executeQuery();
+			if(rs.next()){
+				fid=rs.getInt("fid");
+				txtFirmName.setText(rs.getString("name"));
+				txtGSTIN.setText(rs.getString("gstin"));
+				txtAddress.setText(rs.getString("address"));
+				txtContact.setText(Integer.toString(rs.getInt("contact")));
+			}
+		}catch(SQLException e){
+			JOptionPane.showMessageDialog(null, e,"getFir,Details() Exception",JOptionPane.ERROR_MESSAGE);
+		}
+	}
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+		clear();
+		getFirmDetails();
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        // TODO add your handling code here:
+		clear();
+    }//GEN-LAST:event_btnClearActionPerformed
 
     /**
      * @param args the command line arguments

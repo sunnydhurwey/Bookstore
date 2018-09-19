@@ -115,11 +115,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="jLabel11" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="txtGSTIN" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtGSTIN" linkSize="10" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cmbVendorList" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmbVendorList" linkSize="10" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="13" max="32767" attributes="0"/>
@@ -258,7 +258,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel16" min="-2" pref="46" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtPrice" pref="134" max="32767" attributes="0"/>
+                                      <Component id="txtPrice" pref="136" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -282,25 +282,25 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="jLabel2" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="txtPIID" alignment="3" max="32767" attributes="0"/>
+                              <Component id="txtPIID" linkSize="9" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="dtPurchaseInward" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="dtPurchaseInward" linkSize="9" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel8" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="txtHSNCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtHSNCode" linkSize="9" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="txtProductID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtProductID" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="txtBarcode" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtBarcode" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel4" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="txtName" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtName" linkSize="8" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -309,27 +309,25 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="txtQuantity" alignment="3" max="32767" attributes="0"/>
-                                  <Component id="jLabel10" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="txtSubQty" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="jLabel12" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="txtCost" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="jLabel13" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="txtCGST" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="jLabel14" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="txtSGST" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="jLabel15" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jLabel9" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="txtQuantity" linkSize="7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel10" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="txtSubQty" linkSize="7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jLabel12" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="txtCost" linkSize="7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jLabel13" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="txtCGST" linkSize="7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jLabel14" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="txtSGST" linkSize="7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jLabel15" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="txtIGST" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="jLabel9" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="txtIGST" linkSize="7" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                               <Component id="jLabel16" min="-2" pref="27" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="txtPrice" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="txtPrice" linkSize="7" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
