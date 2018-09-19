@@ -114,11 +114,16 @@ public class ManageUser extends javax.swing.JFrame {
                 btnUpdateUserActionPerformed(evt);
             }
         });
-        jPanel1.add(btnUpdateUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 70, -1));
+        jPanel1.add(btnUpdateUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 80, -1));
 
         btnDeleteUser.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         btnDeleteUser.setText("DELETE");
-        jPanel1.add(btnDeleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 90, -1));
+        btnDeleteUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteUserActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnDeleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 90, -1));
 
         txtPassword.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 350, -1));
@@ -130,7 +135,7 @@ public class ManageUser extends javax.swing.JFrame {
                 btnResetActionPerformed(evt);
             }
         });
-        jPanel1.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 70, -1));
+        jPanel1.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 70, -1));
 
         tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -267,7 +272,7 @@ public class ManageUser extends javax.swing.JFrame {
 	//Program to update existing user details
 	public void updateUser(){
 		try{
-			String sql="Update users set name='"+txtName.getText()+"', username='"+txtUsername.getText()+"', password='"+txtPassword.getText()+"'";
+			String sql="UPDATE users SET name='"+txtName.getText()+"', username='"+txtUsername.getText()+"', password='"+txtPassword.getText()+"' WHERE uid='"+uID+"'";
 			pst=conn.prepareStatement(sql);
 			pst.execute();
 			JOptionPane.showMessageDialog(null, "User data has been updated successfully","Data Updated",JOptionPane.INFORMATION_MESSAGE);
@@ -281,6 +286,21 @@ public class ManageUser extends javax.swing.JFrame {
 		updateUser();
 		resetForm();
     }//GEN-LAST:event_btnUpdateUserActionPerformed
+
+	//Program to delete user
+	public void deleteUser(){
+		try{
+			String sql="DELETE FROM users WHERE uid='"+uID+"'";
+			pst=conn.prepareStatement(sql);
+			pst.execute();
+			JOptionPane.showMessageDialog(null, "User deleted from database successfully.","User Deleted",JOptionPane.INFORMATION_MESSAGE);
+		}catch(SQLException e){
+			JOptionPane.showMessageDialog(null, e,"deleteUser() exception",JOptionPane.ERROR_MESSAGE);
+		}
+	}
+    private void btnDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteUserActionPerformed
 
     /**
      * @param args the command line arguments
