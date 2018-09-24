@@ -45,46 +45,62 @@ public class PurchaseInward extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        cmbVendorList = new javax.swing.JComboBox<>();
-        jLabel11 = new javax.swing.JLabel();
-        txtGSTIN = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        txtPIID = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        txtProductID = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        txtBarcode = new javax.swing.JTextField();
-        dtPurchaseInward = new com.toedter.calendar.JDateChooser();
-        txtName = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        txtDescription = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtHSNCode = new javax.swing.JTextField();
+        txtPurCGSTAmt = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        txtPurSGSTAmt = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtQuantity = new javax.swing.JTextField();
+        txtPurIGSTAmt = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtSubQty = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        txtCost = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        txtCGST = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        txtSGST = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        txtIGST = new javax.swing.JTextField();
+        cmbUnit = new javax.swing.JComboBox<>();
+        btnUpdtTrans = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        txtHSNCODE = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        txtPrice = new javax.swing.JTextField();
-        btnAdd = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblProductSearch = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblPurchaseList = new javax.swing.JTable();
+        txtSalesRate = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        txtSalesCGSTAmt = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        txtSalesSGSTAmt = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        txtSalesIGSTAmt = new javax.swing.JTextField();
+        lblCurrentDate = new javax.swing.JLabel();
+        lblTime = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtProductID = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        cmbPurCGSTRate = new javax.swing.JComboBox<>();
+        txtBarcode = new javax.swing.JTextField();
+        cmbSalesCGSTRate = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        cmbPurIGSTRate = new javax.swing.JComboBox<>();
+        cmbSalesIGSTRate = new javax.swing.JComboBox<>();
+        cmbPurSGSTRate = new javax.swing.JComboBox<>();
+        cmbSalesSGSTRate = new javax.swing.JComboBox<>();
+        jLabel27 = new javax.swing.JLabel();
+        txtPurTotAmt = new javax.swing.JTextField();
+        txtSalesTotAmt = new javax.swing.JTextField();
+        cmbItemName = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        txtProductDescription = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtQty = new javax.swing.JTextField();
+        btnAddProduct = new javax.swing.JButton();
+        btnDeleteProduct = new javax.swing.JButton();
+        btnPrint = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblPurInvoice = new javax.swing.JTable();
+        txtPurchaseRate = new javax.swing.JTextField();
+        btnNewProduct = new javax.swing.JButton();
+        btnGenerateInvoice = new javax.swing.JButton();
+        txtTotalInvoice = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtInvoiceNo = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        cmbDealer = new javax.swing.JComboBox<>();
+        btnSaveTrans = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Purchase Inward - The Bookstore");
@@ -96,20 +112,478 @@ public class PurchaseInward extends javax.swing.JFrame {
 
         jPanel1.setBackground(java.awt.Color.gray);
 
-        jPanel2.setBackground(java.awt.Color.gray);
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Vendor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), java.awt.Color.white)); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(2, 2, 111));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Purchase Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), java.awt.Color.yellow)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel1.setForeground(java.awt.Color.white);
-        jLabel1.setText("Select Vendor");
+        jLabel7.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel7.setForeground(java.awt.Color.white);
+        jLabel7.setText("CGST%");
 
-        cmbVendorList.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtPurCGSTAmt.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtPurCGSTAmt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPurCGSTAmtFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPurCGSTAmtFocusLost(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel8.setForeground(java.awt.Color.white);
+        jLabel8.setText("SGST%");
+
+        txtPurSGSTAmt.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtPurSGSTAmt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPurSGSTAmtFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPurSGSTAmtFocusLost(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel9.setForeground(java.awt.Color.white);
+        jLabel9.setText("IGST%");
+
+        txtPurIGSTAmt.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtPurIGSTAmt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPurIGSTAmtFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPurIGSTAmtFocusLost(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel10.setForeground(java.awt.Color.white);
+        jLabel10.setText("Unit");
+
+        cmbUnit.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        cmbUnit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Unit--", "brl", "box", "can", "case", "cg", "cl", "cm", "chn", "crt", "ccm", "cdm", "cuf", "cui", "cum", "cmm", "cuy", "dg", "dl", "dm", "doz", "ea ", "ft", "fl", "gal", "grm", "grs", "hun", "in", "kg", "kl", "kt", "knt", "l ", "m", "mt", "mg", "oz", "pc", "ton" }));
+        cmbUnit.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cmbUnitFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cmbUnitFocusLost(evt);
+            }
+        });
+
+        btnUpdtTrans.setBackground(java.awt.Color.cyan);
+        btnUpdtTrans.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        btnUpdtTrans.setText("UPDATE TRANSACTION");
+        btnUpdtTrans.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdtTransActionPerformed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         jLabel11.setForeground(java.awt.Color.white);
-        jLabel11.setText("GSTIN");
+        jLabel11.setText("HSN-CODE");
 
-        txtGSTIN.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtHSNCODE.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtHSNCODE.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtHSNCODEFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtHSNCODEFocusLost(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel16.setForeground(java.awt.Color.white);
+        jLabel16.setText("Sales Rate");
+
+        txtSalesRate.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtSalesRate.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSalesRateFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSalesRateFocusLost(evt);
+            }
+        });
+        txtSalesRate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSalesRateKeyReleased(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel17.setForeground(java.awt.Color.white);
+        jLabel17.setText("CGST%");
+
+        txtSalesCGSTAmt.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtSalesCGSTAmt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSalesCGSTAmtFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSalesCGSTAmtFocusLost(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel18.setForeground(java.awt.Color.white);
+        jLabel18.setText("SGST%");
+
+        txtSalesSGSTAmt.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtSalesSGSTAmt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSalesSGSTAmtFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSalesSGSTAmtFocusLost(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel19.setForeground(java.awt.Color.white);
+        jLabel19.setText("IGST%");
+
+        txtSalesIGSTAmt.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtSalesIGSTAmt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSalesIGSTAmtFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSalesIGSTAmtFocusLost(evt);
+            }
+        });
+
+        lblCurrentDate.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        lblCurrentDate.setForeground(java.awt.Color.white);
+        lblCurrentDate.setText("Date");
+
+        lblTime.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        lblTime.setForeground(java.awt.Color.white);
+        lblTime.setText("Time");
+
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel1.setForeground(java.awt.Color.white);
+        jLabel1.setText("Product ID");
+
+        txtProductID.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtProductID.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtProductIDFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtProductIDFocusLost(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel2.setForeground(java.awt.Color.white);
+        jLabel2.setText("Barcode");
+
+        cmbPurCGSTRate.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        cmbPurCGSTRate.setToolTipText("Select GST percent");
+        cmbPurCGSTRate.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbPurCGSTRateItemStateChanged(evt);
+            }
+        });
+        cmbPurCGSTRate.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cmbPurCGSTRateFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cmbPurCGSTRateFocusLost(evt);
+            }
+        });
+
+        txtBarcode.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtBarcode.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtBarcodeFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBarcodeFocusLost(evt);
+            }
+        });
+        txtBarcode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBarcodeActionPerformed(evt);
+            }
+        });
+
+        cmbSalesCGSTRate.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        cmbSalesCGSTRate.setToolTipText("Select GST percent");
+        cmbSalesCGSTRate.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbSalesCGSTRateItemStateChanged(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel3.setForeground(java.awt.Color.white);
+        jLabel3.setText("Item Name");
+
+        cmbPurIGSTRate.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        cmbPurIGSTRate.setToolTipText("Select GST percent");
+        cmbPurIGSTRate.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbPurIGSTRateItemStateChanged(evt);
+            }
+        });
+        cmbPurIGSTRate.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cmbPurIGSTRateFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cmbPurIGSTRateFocusLost(evt);
+            }
+        });
+
+        cmbSalesIGSTRate.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        cmbSalesIGSTRate.setToolTipText("Select GST percent");
+        cmbSalesIGSTRate.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbSalesIGSTRateItemStateChanged(evt);
+            }
+        });
+
+        cmbPurSGSTRate.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        cmbPurSGSTRate.setToolTipText("Select GST percent");
+        cmbPurSGSTRate.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbPurSGSTRateItemStateChanged(evt);
+            }
+        });
+        cmbPurSGSTRate.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cmbPurSGSTRateFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cmbPurSGSTRateFocusLost(evt);
+            }
+        });
+
+        cmbSalesSGSTRate.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        cmbSalesSGSTRate.setToolTipText("Select GST percent");
+        cmbSalesSGSTRate.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbSalesSGSTRateItemStateChanged(evt);
+            }
+        });
+        cmbSalesSGSTRate.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cmbSalesSGSTRateFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cmbSalesSGSTRateFocusLost(evt);
+            }
+        });
+
+        jLabel27.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel27.setForeground(java.awt.Color.white);
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setText("TOTAL");
+
+        txtPurTotAmt.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtPurTotAmt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPurTotAmtFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPurTotAmtFocusLost(evt);
+            }
+        });
+
+        txtSalesTotAmt.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtSalesTotAmt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSalesTotAmtFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSalesTotAmtFocusLost(evt);
+            }
+        });
+
+        cmbItemName.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        cmbItemName.setToolTipText("Select product");
+        cmbItemName.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbItemNameItemStateChanged(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel4.setForeground(java.awt.Color.white);
+        jLabel4.setText("Description");
+
+        txtProductDescription.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtProductDescription.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtProductDescriptionFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtProductDescriptionFocusLost(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel5.setForeground(java.awt.Color.white);
+        jLabel5.setText("Quantity");
+
+        txtQty.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtQty.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtQtyFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtQtyFocusLost(evt);
+            }
+        });
+        txtQty.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtQtyKeyReleased(evt);
+            }
+        });
+
+        btnAddProduct.setBackground(java.awt.Color.green);
+        btnAddProduct.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        btnAddProduct.setText("ADD");
+        btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddProductActionPerformed(evt);
+            }
+        });
+
+        btnDeleteProduct.setBackground(java.awt.Color.red);
+        btnDeleteProduct.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        btnDeleteProduct.setText("DELETE");
+        btnDeleteProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteProductActionPerformed(evt);
+            }
+        });
+
+        btnPrint.setBackground(java.awt.Color.white);
+        btnPrint.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        btnPrint.setText("PRINT");
+        btnPrint.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrintActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel6.setForeground(java.awt.Color.white);
+        jLabel6.setText("Purchase Rate");
+
+        tblPurInvoice.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tblPurInvoice.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPurInvoiceMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tblPurInvoice);
+
+        txtPurchaseRate.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtPurchaseRate.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPurchaseRateFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPurchaseRateFocusLost(evt);
+            }
+        });
+        txtPurchaseRate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPurchaseRateKeyReleased(evt);
+            }
+        });
+
+        btnNewProduct.setBackground(java.awt.Color.cyan);
+        btnNewProduct.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        btnNewProduct.setText("NEW");
+        btnNewProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewProductActionPerformed(evt);
+            }
+        });
+
+        btnGenerateInvoice.setBackground(java.awt.Color.white);
+        btnGenerateInvoice.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        btnGenerateInvoice.setText("GENERATE INVOICE");
+        btnGenerateInvoice.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnGenerateInvoice.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnGenerateInvoice.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnGenerateInvoice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerateInvoiceActionPerformed(evt);
+            }
+        });
+
+        txtTotalInvoice.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jLabel26.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
+        jLabel26.setForeground(java.awt.Color.white);
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("TOTAL");
+
+        jLabel12.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel12.setForeground(java.awt.Color.white);
+        jLabel12.setText("Invoice ID");
+
+        txtInvoiceNo.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtInvoiceNo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtInvoiceNoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtInvoiceNoFocusLost(evt);
+            }
+        });
+        txtInvoiceNo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtInvoiceNoKeyReleased(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel13.setForeground(java.awt.Color.white);
+        jLabel13.setText("Dealer");
+
+        cmbDealer.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        cmbDealer.setToolTipText("Select product");
+        cmbDealer.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbDealerItemStateChanged(evt);
+            }
+        });
+        cmbDealer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDealerActionPerformed(evt);
+            }
+        });
+
+        btnSaveTrans.setBackground(java.awt.Color.cyan);
+        btnSaveTrans.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        btnSaveTrans.setText("SAVE TRANSACTION");
+        btnSaveTrans.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveTransActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -117,293 +591,231 @@ public class PurchaseInward extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmbVendorList, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtGSTIN)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtProductDescription))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(txtQty, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cmbUnit, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtHSNCODE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPurchaseRate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSalesRate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(6, 6, 6)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cmbSalesCGSTRate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbPurCGSTRate, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtPurCGSTAmt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSalesCGSTAmt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(6, 6, 6)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cmbSalesSGSTRate, 0, 1, Short.MAX_VALUE)
+                                    .addComponent(cmbPurSGSTRate, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtSalesSGSTAmt)
+                                    .addComponent(txtPurSGSTAmt, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cmbSalesIGSTRate, 0, 1, Short.MAX_VALUE)
+                                    .addComponent(cmbPurIGSTRate, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtSalesIGSTAmt)
+                                    .addComponent(txtPurIGSTAmt, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                            .addComponent(txtPurTotAmt, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtSalesTotAmt)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtInvoiceNo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbDealer, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCurrentDate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtProductID, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtBarcode, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbItemName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnUpdtTrans, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSaveTrans, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnGenerateInvoice, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtTotalInvoice, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnNewProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDeleteProduct)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddProduct, btnDeleteProduct, btnNewProduct, btnPrint});
+
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtGSTIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblCurrentDate)
+                        .addComponent(lblTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(cmbVendorList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(13, Short.MAX_VALUE))
-        );
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cmbVendorList, txtGSTIN});
-
-        jPanel3.setBackground(java.awt.Color.gray);
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Product Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), java.awt.Color.white)); // NOI18N
-
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel2.setForeground(java.awt.Color.white);
-        jLabel2.setText("PurInv-ID");
-
-        txtPIID.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-
-        jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel3.setForeground(java.awt.Color.white);
-        jLabel3.setText("Date");
-
-        jLabel4.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel4.setForeground(java.awt.Color.white);
-        jLabel4.setText("Product ID");
-
-        txtProductID.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-
-        jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel5.setForeground(java.awt.Color.white);
-        jLabel5.setText("Barcode");
-
-        txtBarcode.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-
-        dtPurchaseInward.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-
-        txtName.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-
-        jLabel6.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel6.setForeground(java.awt.Color.white);
-        jLabel6.setText("Name");
-
-        txtDescription.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-
-        jLabel7.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel7.setForeground(java.awt.Color.white);
-        jLabel7.setText("Description");
-
-        txtHSNCode.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-
-        jLabel8.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel8.setForeground(java.awt.Color.white);
-        jLabel8.setText("HSN");
-
-        jLabel9.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel9.setForeground(java.awt.Color.white);
-        jLabel9.setText("Quantity");
-
-        txtQuantity.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-
-        jLabel10.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel10.setForeground(java.awt.Color.white);
-        jLabel10.setText("Sub-Qty");
-
-        txtSubQty.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-
-        jLabel12.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel12.setForeground(java.awt.Color.white);
-        jLabel12.setText("Cost");
-
-        txtCost.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-
-        jLabel13.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel13.setForeground(java.awt.Color.white);
-        jLabel13.setText("CGST");
-
-        txtCGST.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-
-        jLabel14.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel14.setForeground(java.awt.Color.white);
-        jLabel14.setText("SGST");
-
-        txtSGST.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-
-        jLabel15.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel15.setForeground(java.awt.Color.white);
-        jLabel15.setText("IGST");
-
-        txtIGST.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-
-        jLabel16.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel16.setForeground(java.awt.Color.white);
-        jLabel16.setText("Price");
-
-        txtPrice.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-
-        btnAdd.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
-        btnAdd.setText("ADD");
-
-        btnUpdate.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
-        btnUpdate.setText("UPDATE");
-
-        btnDelete.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
-        btnDelete.setText("DELETE");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(16, 16, 16)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtProductID, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                                    .addComponent(txtPIID))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dtPurchaseInward, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName)
-                            .addComponent(txtHSNCode)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDescription)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(132, 132, 132)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtBarcode, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSubQty, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCGST, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSGST, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtIGST, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnAdd)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnUpdate)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDelete)))
-                .addContainerGap())
-        );
-
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAdd, btnDelete, btnUpdate});
-
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPIID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(dtPurchaseInward, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtHSNCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtProductID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtBarcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel12)
+                        .addComponent(txtInvoiceNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel13)
+                        .addComponent(cmbDealer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtProductID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtBarcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(cmbItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtSubQty, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCGST, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtSGST, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIGST, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnDelete))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(txtProductDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(txtQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)
+                            .addComponent(cmbUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtHSNCODE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSalesCGSTAmt)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPurchaseRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cmbPurCGSTRate)
+                                .addComponent(txtPurCGSTAmt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtSalesRate, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbSalesCGSTRate, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtPurSGSTAmt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbPurSGSTRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtSalesSGSTAmt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbSalesSGSTRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cmbPurIGSTRate)
+                                .addComponent(txtPurIGSTAmt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cmbSalesIGSTRate, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtSalesIGSTAmt)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(txtPurTotAmt)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtSalesTotAmt))))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddProduct)
+                    .addComponent(btnDeleteProduct)
+                    .addComponent(btnPrint)
+                    .addComponent(btnNewProduct))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel26)
+                        .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnSaveTrans)
+                            .addComponent(btnUpdtTrans))
+                        .addComponent(btnGenerateInvoice)
+                        .addComponent(txtTotalInvoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
-
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAdd, btnDelete, btnUpdate});
-
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtCGST, txtCost, txtIGST, txtPrice, txtQuantity, txtSGST, txtSubQty});
-
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtBarcode, txtName, txtProductID});
-
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {dtPurchaseInward, txtHSNCode, txtPIID});
-
-        tblProductSearch.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        tblProductSearch.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(tblProductSearch);
-
-        tblPurchaseList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane2.setViewportView(tblPurchaseList);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -411,25 +823,15 @@ public class PurchaseInward extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -443,7 +845,7 @@ public class PurchaseInward extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(1072, 693));
+        setSize(new java.awt.Dimension(1310, 680));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -451,6 +853,263 @@ public class PurchaseInward extends javax.swing.JFrame {
         // TODO add your handling code here:
         obj=null;
     }//GEN-LAST:event_formWindowClosing
+
+    private void txtPurCGSTAmtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPurCGSTAmtFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPurCGSTAmtFocusGained
+
+    private void txtPurCGSTAmtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPurCGSTAmtFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPurCGSTAmtFocusLost
+
+    private void txtPurSGSTAmtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPurSGSTAmtFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPurSGSTAmtFocusGained
+
+    private void txtPurSGSTAmtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPurSGSTAmtFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPurSGSTAmtFocusLost
+
+    private void txtPurIGSTAmtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPurIGSTAmtFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPurIGSTAmtFocusGained
+
+    private void txtPurIGSTAmtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPurIGSTAmtFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPurIGSTAmtFocusLost
+
+    private void cmbUnitFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbUnitFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbUnitFocusGained
+
+    private void cmbUnitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbUnitFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbUnitFocusLost
+
+    private void btnUpdtTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdtTransActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUpdtTransActionPerformed
+
+    private void txtHSNCODEFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHSNCODEFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHSNCODEFocusGained
+
+    private void txtHSNCODEFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtHSNCODEFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHSNCODEFocusLost
+
+    private void txtSalesRateFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSalesRateFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalesRateFocusGained
+
+    private void txtSalesRateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSalesRateFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalesRateFocusLost
+
+    private void txtSalesRateKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSalesRateKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalesRateKeyReleased
+
+    private void txtSalesCGSTAmtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSalesCGSTAmtFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalesCGSTAmtFocusGained
+
+    private void txtSalesCGSTAmtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSalesCGSTAmtFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalesCGSTAmtFocusLost
+
+    private void txtSalesSGSTAmtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSalesSGSTAmtFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalesSGSTAmtFocusGained
+
+    private void txtSalesSGSTAmtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSalesSGSTAmtFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalesSGSTAmtFocusLost
+
+    private void txtSalesIGSTAmtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSalesIGSTAmtFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalesIGSTAmtFocusGained
+
+    private void txtSalesIGSTAmtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSalesIGSTAmtFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalesIGSTAmtFocusLost
+
+    private void txtProductIDFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtProductIDFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProductIDFocusGained
+
+    private void txtProductIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtProductIDFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProductIDFocusLost
+
+    private void cmbPurCGSTRateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPurCGSTRateItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbPurCGSTRateItemStateChanged
+
+    private void cmbPurCGSTRateFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbPurCGSTRateFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbPurCGSTRateFocusGained
+
+    private void cmbPurCGSTRateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbPurCGSTRateFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbPurCGSTRateFocusLost
+
+    private void txtBarcodeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBarcodeFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBarcodeFocusGained
+
+    private void txtBarcodeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBarcodeFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBarcodeFocusLost
+
+    private void txtBarcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBarcodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBarcodeActionPerformed
+
+    private void cmbSalesCGSTRateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbSalesCGSTRateItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbSalesCGSTRateItemStateChanged
+
+    private void cmbPurIGSTRateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPurIGSTRateItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbPurIGSTRateItemStateChanged
+
+    private void cmbPurIGSTRateFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbPurIGSTRateFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbPurIGSTRateFocusGained
+
+    private void cmbPurIGSTRateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbPurIGSTRateFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbPurIGSTRateFocusLost
+
+    private void cmbSalesIGSTRateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbSalesIGSTRateItemStateChanged
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_cmbSalesIGSTRateItemStateChanged
+
+    private void cmbPurSGSTRateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPurSGSTRateItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbPurSGSTRateItemStateChanged
+
+    private void cmbPurSGSTRateFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbPurSGSTRateFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbPurSGSTRateFocusGained
+
+    private void cmbPurSGSTRateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbPurSGSTRateFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbPurSGSTRateFocusLost
+
+    private void cmbSalesSGSTRateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbSalesSGSTRateItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbSalesSGSTRateItemStateChanged
+
+    private void cmbSalesSGSTRateFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbSalesSGSTRateFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbSalesSGSTRateFocusGained
+
+    private void cmbSalesSGSTRateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbSalesSGSTRateFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbSalesSGSTRateFocusLost
+
+    private void txtPurTotAmtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPurTotAmtFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPurTotAmtFocusGained
+
+    private void txtPurTotAmtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPurTotAmtFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPurTotAmtFocusLost
+
+    private void txtSalesTotAmtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSalesTotAmtFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalesTotAmtFocusGained
+
+    private void txtSalesTotAmtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSalesTotAmtFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalesTotAmtFocusLost
+
+    private void cmbItemNameItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbItemNameItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbItemNameItemStateChanged
+
+    private void txtProductDescriptionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtProductDescriptionFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProductDescriptionFocusGained
+
+    private void txtProductDescriptionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtProductDescriptionFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProductDescriptionFocusLost
+
+    private void txtQtyFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtQtyFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtQtyFocusGained
+
+    private void txtQtyFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtQtyFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtQtyFocusLost
+
+    private void txtQtyKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQtyKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtQtyKeyReleased
+
+    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddProductActionPerformed
+
+    private void btnDeleteProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteProductActionPerformed
+
+    private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPrintActionPerformed
+
+    private void tblPurInvoiceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPurInvoiceMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblPurInvoiceMouseClicked
+
+    private void txtPurchaseRateFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPurchaseRateFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPurchaseRateFocusGained
+
+    private void txtPurchaseRateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPurchaseRateFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPurchaseRateFocusLost
+
+    private void txtPurchaseRateKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPurchaseRateKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPurchaseRateKeyReleased
+
+    private void btnNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNewProductActionPerformed
+
+    private void btnGenerateInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateInvoiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGenerateInvoiceActionPerformed
+
+    private void txtInvoiceNoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtInvoiceNoFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtInvoiceNoFocusGained
+
+    private void txtInvoiceNoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtInvoiceNoFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtInvoiceNoFocusLost
+
+    private void txtInvoiceNoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInvoiceNoKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtInvoiceNoKeyReleased
+
+    private void cmbDealerItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbDealerItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbDealerItemStateChanged
+
+    private void cmbDealerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDealerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbDealerActionPerformed
+
+    private void btnSaveTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveTransActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaveTransActionPerformed
 
     /**
      * @param args the command line arguments
@@ -488,20 +1147,34 @@ public class PurchaseInward extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnUpdate;
-    private javax.swing.JComboBox<String> cmbVendorList;
-    private com.toedter.calendar.JDateChooser dtPurchaseInward;
+    private javax.swing.JButton btnAddProduct;
+    private javax.swing.JButton btnDeleteProduct;
+    private javax.swing.JButton btnGenerateInvoice;
+    private javax.swing.JButton btnNewProduct;
+    private javax.swing.JButton btnPrint;
+    private javax.swing.JButton btnSaveTrans;
+    private javax.swing.JButton btnUpdtTrans;
+    private javax.swing.JComboBox<String> cmbDealer;
+    private javax.swing.JComboBox<String> cmbItemName;
+    private javax.swing.JComboBox<String> cmbPurCGSTRate;
+    private javax.swing.JComboBox<String> cmbPurIGSTRate;
+    private javax.swing.JComboBox<String> cmbPurSGSTRate;
+    private javax.swing.JComboBox<String> cmbSalesCGSTRate;
+    private javax.swing.JComboBox<String> cmbSalesIGSTRate;
+    private javax.swing.JComboBox<String> cmbSalesSGSTRate;
+    private javax.swing.JComboBox<String> cmbUnit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -511,24 +1184,26 @@ public class PurchaseInward extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tblProductSearch;
-    private javax.swing.JTable tblPurchaseList;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblCurrentDate;
+    private javax.swing.JLabel lblTime;
+    private javax.swing.JTable tblPurInvoice;
     private javax.swing.JTextField txtBarcode;
-    private javax.swing.JTextField txtCGST;
-    private javax.swing.JTextField txtCost;
-    private javax.swing.JTextField txtDescription;
-    private javax.swing.JTextField txtGSTIN;
-    private javax.swing.JTextField txtHSNCode;
-    private javax.swing.JTextField txtIGST;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPIID;
-    private javax.swing.JTextField txtPrice;
+    private javax.swing.JTextField txtHSNCODE;
+    private javax.swing.JTextField txtInvoiceNo;
+    private javax.swing.JTextField txtProductDescription;
     private javax.swing.JTextField txtProductID;
-    private javax.swing.JTextField txtQuantity;
-    private javax.swing.JTextField txtSGST;
-    private javax.swing.JTextField txtSubQty;
+    private javax.swing.JTextField txtPurCGSTAmt;
+    private javax.swing.JTextField txtPurIGSTAmt;
+    private javax.swing.JTextField txtPurSGSTAmt;
+    private javax.swing.JTextField txtPurTotAmt;
+    private javax.swing.JTextField txtPurchaseRate;
+    private javax.swing.JTextField txtQty;
+    private javax.swing.JTextField txtSalesCGSTAmt;
+    private javax.swing.JTextField txtSalesIGSTAmt;
+    private javax.swing.JTextField txtSalesRate;
+    private javax.swing.JTextField txtSalesSGSTAmt;
+    private javax.swing.JTextField txtSalesTotAmt;
+    private javax.swing.JTextField txtTotalInvoice;
     // End of variables declaration//GEN-END:variables
 }
