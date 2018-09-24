@@ -107,9 +107,19 @@ public class ManageFirmDetails extends javax.swing.JFrame {
 
         btnAdd.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         btnAdd.setText("ADD");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         btnUpdate.setText("UPDATE");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnClear.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         btnClear.setText("CLEAR");
@@ -231,10 +241,16 @@ public class ManageFirmDetails extends javax.swing.JFrame {
 				txtFirmName.setText(rs.getString("name"));
 				txtGSTIN.setText(rs.getString("gstin"));
 				txtAddress.setText(rs.getString("address"));
-				txtContact.setText(Integer.toString(rs.getInt("contact")));
+				txtContact.setText(rs.getString("contact"));
+				txtEmail.setText(rs.getString("email"));
+				btnAdd.setEnabled(false);
+				btnUpdate.setEnabled(true);
+			}else{
+				btnAdd.setEnabled(true);
+				btnUpdate.setEnabled(false);
 			}
 		}catch(SQLException e){
-			JOptionPane.showMessageDialog(null, e,"getFir,Details() Exception",JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, e,"getFirmDetails() Exception",JOptionPane.ERROR_MESSAGE);
 		}
 	}
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -247,6 +263,48 @@ public class ManageFirmDetails extends javax.swing.JFrame {
         // TODO add your handling code here:
 		clear();
     }//GEN-LAST:event_btnClearActionPerformed
+
+	//Program to add firm details
+	public void add(){
+		try{
+			String sql="Insert Into firmdetails (name,gstin,address,contact,email)values(?,?,?,?,?)";
+			pst=conn.prepareStatement(sql);
+			pst.setString(1, txtFirmName.getText());
+			pst.setString(2, txtGSTIN.getText());
+			pst.setString(3, txtAddress.getText());
+			pst.setString(4, txtContact.getText());
+			pst.setString(5, txtEmail.getText());
+			pst.execute();
+			JOptionPane.showMessageDialog(null, "Firm details added successfully","Data Added",JOptionPane.INFORMATION_MESSAGE);
+			pst.close();
+		}catch(SQLException e){
+			JOptionPane.showMessageDialog(null, e,"add() Exception",JOptionPane.ERROR_MESSAGE);
+		}
+	}
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+		add();
+		getFirmDetails();
+    }//GEN-LAST:event_btnAddActionPerformed
+
+	//Program to update existing firm details
+	public void update(){
+		try{
+			String sql="Update firmdetails set name='"+txtFirmName.getText()+"', gstin='"+txtGSTIN.getText()+"',"
+					+ " address='"+txtAddress.getText()+"',contact='"+txtContact.getText()+"',email='"+txtEmail.getText()+"'";
+			pst=conn.prepareStatement(sql);
+			pst.execute();
+			pst.close();
+			JOptionPane.showMessageDialog(null,"Firm details have been updated successfully","Data Updated",JOptionPane.INFORMATION_MESSAGE);
+		}catch(SQLException e){
+			JOptionPane.showMessageDialog(null, e,"update() Exception",JOptionPane.ERROR_MESSAGE);
+		}
+	}
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+		update();
+		getFirmDetails();
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     /**
      * @param args the command line arguments
