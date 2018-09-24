@@ -37,6 +37,12 @@ public class Dashboard extends javax.swing.JFrame {
         mnuManageFirmDetails = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         mnuExit = new javax.swing.JMenuItem();
+        mnuVendors = new javax.swing.JMenu();
+        mnuBookNoteVendor = new javax.swing.JMenuItem();
+        jSeparator6 = new javax.swing.JPopupMenu.Separator();
+        mnuStationaryVendors = new javax.swing.JMenuItem();
+        mnuGST = new javax.swing.JMenu();
+        mnuManageGSTRate = new javax.swing.JMenuItem();
         mnuPurchase = new javax.swing.JMenu();
         mnuPurchaseInward = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
@@ -47,16 +53,10 @@ public class Dashboard extends javax.swing.JFrame {
         mnuSalesReturn = new javax.swing.JMenuItem();
         jSeparator7 = new javax.swing.JPopupMenu.Separator();
         mnuSalesPackage = new javax.swing.JMenuItem();
-        mnuGST = new javax.swing.JMenu();
-        mnuManageGSTRate = new javax.swing.JMenuItem();
         mnuAccounts = new javax.swing.JMenu();
-        mnuPurchaseAccount = new javax.swing.JMenuItem();
+        mnuPurchaseReport = new javax.swing.JMenuItem();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
-        mnuSalesAccount = new javax.swing.JMenuItem();
-        mnuVendors = new javax.swing.JMenu();
-        mnuBookNoteVendor = new javax.swing.JMenuItem();
-        jSeparator6 = new javax.swing.JPopupMenu.Separator();
-        mnuStationaryVendors = new javax.swing.JMenuItem();
+        mnuSalesReport = new javax.swing.JMenuItem();
         mnuAbout = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -110,6 +110,24 @@ public class Dashboard extends javax.swing.JFrame {
 
         jMenuBar1.add(mnuAdministration);
 
+        mnuVendors.setText("Vendors");
+
+        mnuBookNoteVendor.setText("Books & Notebook Vendors");
+        mnuVendors.add(mnuBookNoteVendor);
+        mnuVendors.add(jSeparator6);
+
+        mnuStationaryVendors.setText("Stationary Vendors");
+        mnuVendors.add(mnuStationaryVendors);
+
+        jMenuBar1.add(mnuVendors);
+
+        mnuGST.setText("GST");
+
+        mnuManageGSTRate.setText("Manage GST Rates");
+        mnuGST.add(mnuManageGSTRate);
+
+        jMenuBar1.add(mnuGST);
+
         mnuPurchase.setText("Purchase");
 
         mnuPurchaseInward.setText("Purchase Inward");
@@ -141,34 +159,16 @@ public class Dashboard extends javax.swing.JFrame {
 
         jMenuBar1.add(mnuSales);
 
-        mnuGST.setText("GST");
+        mnuAccounts.setText("Reports");
 
-        mnuManageGSTRate.setText("Manage GST Rates");
-        mnuGST.add(mnuManageGSTRate);
-
-        jMenuBar1.add(mnuGST);
-
-        mnuAccounts.setText("Accounts");
-
-        mnuPurchaseAccount.setText("Purchase Account");
-        mnuAccounts.add(mnuPurchaseAccount);
+        mnuPurchaseReport.setText("Purchase Report");
+        mnuAccounts.add(mnuPurchaseReport);
         mnuAccounts.add(jSeparator5);
 
-        mnuSalesAccount.setText("Sales Account");
-        mnuAccounts.add(mnuSalesAccount);
+        mnuSalesReport.setText("Sales Report");
+        mnuAccounts.add(mnuSalesReport);
 
         jMenuBar1.add(mnuAccounts);
-
-        mnuVendors.setText("Vendors");
-
-        mnuBookNoteVendor.setText("Books & Notebook Vendors");
-        mnuVendors.add(mnuBookNoteVendor);
-        mnuVendors.add(jSeparator6);
-
-        mnuStationaryVendors.setText("Stationary Vendors");
-        mnuVendors.add(mnuStationaryVendors);
-
-        jMenuBar1.add(mnuVendors);
 
         mnuAbout.setText("About");
         jMenuBar1.add(mnuAbout);
@@ -271,12 +271,12 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuManageUser;
     private javax.swing.JMenuItem mnuPointOfSale;
     private javax.swing.JMenu mnuPurchase;
-    private javax.swing.JMenuItem mnuPurchaseAccount;
     private javax.swing.JMenuItem mnuPurchaseInward;
+    private javax.swing.JMenuItem mnuPurchaseReport;
     private javax.swing.JMenuItem mnuPurchaseReturn;
     private javax.swing.JMenu mnuSales;
-    private javax.swing.JMenuItem mnuSalesAccount;
     private javax.swing.JMenuItem mnuSalesPackage;
+    private javax.swing.JMenuItem mnuSalesReport;
     private javax.swing.JMenuItem mnuSalesReturn;
     private javax.swing.JMenuItem mnuStationaryVendors;
     private javax.swing.JMenu mnuVendors;

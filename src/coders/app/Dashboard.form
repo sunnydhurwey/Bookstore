@@ -39,6 +39,37 @@
             </MenuItem>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="mnuVendors">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vendors"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuBookNoteVendor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Books &amp; Notebook Vendors"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator6">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuStationaryVendors">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Stationary Vendors"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="mnuGST">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="GST"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuManageGSTRate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Manage GST Rates"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="mnuPurchase">
           <Properties>
             <Property name="text" type="java.lang.String" value="Purchase"/>
@@ -87,52 +118,21 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="mnuGST">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="GST"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mnuManageGSTRate">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Manage GST Rates"/>
-              </Properties>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="mnuAccounts">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Accounts"/>
+            <Property name="text" type="java.lang.String" value="Reports"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mnuPurchaseAccount">
+            <MenuItem class="javax.swing.JMenuItem" name="mnuPurchaseReport">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Purchase Account"/>
+                <Property name="text" type="java.lang.String" value="Purchase Report"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator5">
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mnuSalesAccount">
+            <MenuItem class="javax.swing.JMenuItem" name="mnuSalesReport">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Sales Account"/>
-              </Properties>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="mnuVendors">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Vendors"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mnuBookNoteVendor">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Books &amp; Notebook Vendors"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator6">
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mnuStationaryVendors">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Stationary Vendors"/>
+                <Property name="text" type="java.lang.String" value="Sales Report"/>
               </Properties>
             </MenuItem>
           </SubComponents>
