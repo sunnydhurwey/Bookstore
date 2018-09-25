@@ -12,6 +12,7 @@
     <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <Events>
+    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
     <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosing"/>
   </Events>
   <AuxValues>
@@ -42,7 +43,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="80" green="80" id="gray" palette="1" red="80" type="palette"/>
+          <Color blue="1d" green="1b" red="1" type="rgb"/>
         </Property>
       </Properties>
 
@@ -70,7 +71,7 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="6f" green="2" red="2" type="rgb"/>
+              <Color blue="1d" green="1b" red="1" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -102,14 +103,14 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
                                               <Component id="txtQty" min="-2" pref="101" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jLabel10" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="jLabel10" max="32767" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="cmbUnit" min="-2" pref="130" max="-2" attributes="0"/>
+                                              <Component id="txtSubQty" min="-2" pref="101" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="txtHSNCODE" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtHSNCODE" min="-2" pref="295" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -271,7 +272,6 @@
                                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtQty" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cmbUnit" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -292,6 +292,7 @@
                                       <Component id="jLabel6" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                                       <Component id="txtPurchaseRate" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel7" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                                      <Component id="txtSubQty" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel8" alignment="1" max="32767" attributes="0"/>
                                   <Group type="103" alignment="1" groupAlignment="3" attributes="0">
@@ -389,6 +390,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="12" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPurCGSTAmtFocusGained"/>
@@ -411,6 +413,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="12" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPurSGSTAmtFocusGained"/>
@@ -433,6 +436,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="12" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPurIGSTAmtFocusGained"/>
@@ -447,66 +451,8 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Unit"/>
+                <Property name="text" type="java.lang.String" value="SubQty/Qty"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="cmbUnit">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Ubuntu" size="12" style="0"/>
-                </Property>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="40">
-                    <StringItem index="0" value="--Select Unit--"/>
-                    <StringItem index="1" value="brl"/>
-                    <StringItem index="2" value="box"/>
-                    <StringItem index="3" value="can"/>
-                    <StringItem index="4" value="case"/>
-                    <StringItem index="5" value="cg"/>
-                    <StringItem index="6" value="cl"/>
-                    <StringItem index="7" value="cm"/>
-                    <StringItem index="8" value="chn"/>
-                    <StringItem index="9" value="crt"/>
-                    <StringItem index="10" value="ccm"/>
-                    <StringItem index="11" value="cdm"/>
-                    <StringItem index="12" value="cuf"/>
-                    <StringItem index="13" value="cui"/>
-                    <StringItem index="14" value="cum"/>
-                    <StringItem index="15" value="cmm"/>
-                    <StringItem index="16" value="cuy"/>
-                    <StringItem index="17" value="dg"/>
-                    <StringItem index="18" value="dl"/>
-                    <StringItem index="19" value="dm"/>
-                    <StringItem index="20" value="doz"/>
-                    <StringItem index="21" value="ea "/>
-                    <StringItem index="22" value="ft"/>
-                    <StringItem index="23" value="fl"/>
-                    <StringItem index="24" value="gal"/>
-                    <StringItem index="25" value="grm"/>
-                    <StringItem index="26" value="grs"/>
-                    <StringItem index="27" value="hun"/>
-                    <StringItem index="28" value="in"/>
-                    <StringItem index="29" value="kg"/>
-                    <StringItem index="30" value="kl"/>
-                    <StringItem index="31" value="kt"/>
-                    <StringItem index="32" value="knt"/>
-                    <StringItem index="33" value="l "/>
-                    <StringItem index="34" value="m"/>
-                    <StringItem index="35" value="mt"/>
-                    <StringItem index="36" value="mg"/>
-                    <StringItem index="37" value="oz"/>
-                    <StringItem index="38" value="pc"/>
-                    <StringItem index="39" value="ton"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cmbUnitFocusGained"/>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cmbUnitFocusLost"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="btnUpdtTrans">
               <Properties>
@@ -560,6 +506,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="12" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSalesRateFocusGained"/>
@@ -583,6 +530,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="12" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSalesCGSTAmtFocusGained"/>
@@ -605,6 +553,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="12" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSalesSGSTAmtFocusGained"/>
@@ -627,6 +576,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="12" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSalesIGSTAmtFocusGained"/>
@@ -838,6 +788,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="12" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPurTotAmtFocusGained"/>
@@ -849,6 +800,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="12" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSalesTotAmtFocusGained"/>
@@ -998,6 +950,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="12" style="0"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPurchaseRateFocusGained"/>
@@ -1038,7 +991,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtTotalInvoice">
               <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="horizontalAlignment" type="int" value="4"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel26">
@@ -1117,6 +1070,18 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveTransActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtSubQty">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Ubuntu" size="12" style="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSubQtyFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSubQtyFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSubQtyKeyReleased"/>
               </Events>
             </Component>
           </SubComponents>

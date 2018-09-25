@@ -30,6 +30,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuAdministration = new javax.swing.JMenu();
         mnuManageUser = new javax.swing.JMenuItem();
@@ -37,12 +38,8 @@ public class Dashboard extends javax.swing.JFrame {
         mnuManageFirmDetails = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         mnuExit = new javax.swing.JMenuItem();
-        mnuVendors = new javax.swing.JMenu();
-        mnuBookNoteVendor = new javax.swing.JMenuItem();
-        jSeparator6 = new javax.swing.JPopupMenu.Separator();
-        mnuStationaryVendors = new javax.swing.JMenuItem();
+        mnuDealers = new javax.swing.JMenu();
         mnuGST = new javax.swing.JMenu();
-        mnuManageGSTRate = new javax.swing.JMenuItem();
         mnuPurchase = new javax.swing.JMenu();
         mnuPurchaseInward = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
@@ -69,15 +66,21 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel1.setBackground(java.awt.Color.gray);
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coders/app/tbs.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1272, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 537, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(261, 261, 261)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         mnuAdministration.setText("Adminstration");
@@ -110,22 +113,20 @@ public class Dashboard extends javax.swing.JFrame {
 
         jMenuBar1.add(mnuAdministration);
 
-        mnuVendors.setText("Vendors");
-
-        mnuBookNoteVendor.setText("Books & Notebook Vendors");
-        mnuVendors.add(mnuBookNoteVendor);
-        mnuVendors.add(jSeparator6);
-
-        mnuStationaryVendors.setText("Stationary Vendors");
-        mnuVendors.add(mnuStationaryVendors);
-
-        jMenuBar1.add(mnuVendors);
+        mnuDealers.setText("Dealers");
+        mnuDealers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                mnuDealersMousePressed(evt);
+            }
+        });
+        jMenuBar1.add(mnuDealers);
 
         mnuGST.setText("GST");
-
-        mnuManageGSTRate.setText("Manage GST Rates");
-        mnuGST.add(mnuManageGSTRate);
-
+        mnuGST.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                mnuGSTMousePressed(evt);
+            }
+        });
         jMenuBar1.add(mnuGST);
 
         mnuPurchase.setText("Purchase");
@@ -215,6 +216,16 @@ public class Dashboard extends javax.swing.JFrame {
         PurchaseInward.getObj().setVisible(true);
     }//GEN-LAST:event_mnuPurchaseInwardActionPerformed
 
+    private void mnuDealersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuDealersMousePressed
+        // TODO add your handling code here:		
+		ManageDealer.getObj().setVisible(true);
+    }//GEN-LAST:event_mnuDealersMousePressed
+
+    private void mnuGSTMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuGSTMousePressed
+        // TODO add your handling code here:
+		GSTRatesManagement.getObj().setVisible(true);
+    }//GEN-LAST:event_mnuGSTMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -251,6 +262,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
@@ -258,16 +270,14 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
-    private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JPopupMenu.Separator jSeparator7;
     private javax.swing.JMenu mnuAbout;
     private javax.swing.JMenu mnuAccounts;
     private javax.swing.JMenu mnuAdministration;
-    private javax.swing.JMenuItem mnuBookNoteVendor;
+    private javax.swing.JMenu mnuDealers;
     private javax.swing.JMenuItem mnuExit;
     private javax.swing.JMenu mnuGST;
     private javax.swing.JMenuItem mnuManageFirmDetails;
-    private javax.swing.JMenuItem mnuManageGSTRate;
     private javax.swing.JMenuItem mnuManageUser;
     private javax.swing.JMenuItem mnuPointOfSale;
     private javax.swing.JMenu mnuPurchase;
@@ -278,7 +288,5 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuSalesPackage;
     private javax.swing.JMenuItem mnuSalesReport;
     private javax.swing.JMenuItem mnuSalesReturn;
-    private javax.swing.JMenuItem mnuStationaryVendors;
-    private javax.swing.JMenu mnuVendors;
     // End of variables declaration//GEN-END:variables
 }

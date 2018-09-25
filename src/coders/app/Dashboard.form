@@ -39,36 +39,21 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="mnuVendors">
+        <Menu class="javax.swing.JMenu" name="mnuDealers">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Vendors"/>
+            <Property name="text" type="java.lang.String" value="Dealers"/>
           </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mnuBookNoteVendor">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Books &amp; Notebook Vendors"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator6">
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mnuStationaryVendors">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Stationary Vendors"/>
-              </Properties>
-            </MenuItem>
-          </SubComponents>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mnuDealersMousePressed"/>
+          </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnuGST">
           <Properties>
             <Property name="text" type="java.lang.String" value="GST"/>
           </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mnuManageGSTRate">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Manage GST Rates"/>
-              </Properties>
-            </MenuItem>
-          </SubComponents>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mnuGSTMousePressed"/>
+          </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnuPurchase">
           <Properties>
@@ -194,15 +179,29 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="1272" max="32767" attributes="0"/>
+              <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="537" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="129" max="-2" attributes="0"/>
+                  <EmptySpace pref="147" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/coders/app/tbs.png"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
     </Container>
   </SubComponents>
 </Form>

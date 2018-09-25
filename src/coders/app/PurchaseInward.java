@@ -4,9 +4,13 @@
  * and open the template in the editor.
  */
 package coders.app;
+import static java.lang.Thread.sleep;
 import javax.swing.JOptionPane;
 import java.sql.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  *
@@ -16,13 +20,13 @@ public class PurchaseInward extends javax.swing.JFrame {
 
     Connection conn=null;
     ResultSet rs=null;
-    PreparedStatement ps=null;
+    PreparedStatement pst=null;
     /**
      * Creates new form PurchaseInward
      */
     public PurchaseInward() {
         initComponents();
-        this.setIconImage(new ImageIcon(getClass().getResource("")).getImage());
+        //this.setIconImage(new ImageIcon(getClass().getResource("")).getImage());
         conn=jConnect.ConnectDB();
     }
 
@@ -40,6 +44,161 @@ public class PurchaseInward extends javax.swing.JFrame {
         }
         return obj;
     }
+	//Program to get Current Data
+	String dt="dd-MM-yyyy";
+    String tm;
+    public void CurrentDate(){   
+        Thread clock;
+        clock = new Thread(){
+            @Override
+            public void run(){
+                for(;;){
+                    Calendar cal = new GregorianCalendar();
+                    int month=cal.get(Calendar.MONTH)+1;
+                    int day=cal.get(Calendar.DAY_OF_MONTH);
+                    int year=cal.get(Calendar.YEAR);
+                    dt=year+"-"+month+"-"+day;
+                    lblCurrentDate.setText("Date: "+dt);
+                    
+                    int second= cal.get(Calendar.SECOND);
+                    int minute=cal.get(Calendar.MINUTE);
+                    int hour=cal.get(Calendar.HOUR);
+                    String AM_PM = cal.get(Calendar.AM_PM) == 0 ? "AM" : "PM";
+                    tm=hour+":"+minute+":"+second+" "+AM_PM;
+                    lblTime.setText("Time: "+tm);
+                    try {
+                        sleep(1000);
+                    }
+                    catch (InterruptedException ex) {
+                        //Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        };
+        clock.start();  
+    }
+	//Program to get products list
+    public void getProducts(){
+        try{
+            cmbItemName.removeAllItems();
+            cmbItemName.addItem("----Select Item----");
+            String sql="Select * from Products order by p_itemName ASC";
+            pst=conn.prepareStatement(sql);
+            rs=pst.executeQuery();
+            while(rs.next()){
+                cmbItemName.addItem(rs.getString("p_itemName"));
+            }
+            pst.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e,"getProducts() Exception",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    //Program to set new INVOICE id
+    int invID=0;
+    public void getNewInvoiceID(){
+        try{
+            String sql="Select * from PurchaseTransactions";
+            pst=conn.prepareStatement(sql);
+            rs=pst.executeQuery();
+            while(rs.next()){
+                invID=rs.getInt("ptInvoiceID");
+            }
+            invID++;
+            txtInvoiceNo.setText(String.valueOf(invID));
+            pst.close();
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    //Program to get GST from GST Table
+    public void getGST(){
+        try{            
+            cmbPurCGSTRate.removeAllItems();
+            cmbPurSGSTRate.removeAllItems();
+            cmbPurIGSTRate.removeAllItems();
+            cmbSalesCGSTRate.removeAllItems();
+            cmbSalesSGSTRate.removeAllItems();
+            cmbSalesIGSTRate.removeAllItems();
+            String sql="Select * from gstRates order by rateValue ASC";
+            pst=conn.prepareStatement(sql);
+            rs=pst.executeQuery();
+            while(rs.next()){
+                cmbPurCGSTRate.addItem(rs.getString("rateValue"));
+                cmbPurSGSTRate.addItem(rs.getString("rateValue"));
+                cmbPurIGSTRate.addItem(rs.getString("rateValue"));
+                cmbSalesCGSTRate.addItem(rs.getString("rateValue"));
+                cmbSalesSGSTRate.addItem(rs.getString("rateValue"));
+                cmbSalesIGSTRate.addItem(rs.getString("rateValue"));
+            }
+            pst.close();            
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e,"getGST() Exception",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    //Program to get Dealer list
+    int dID=0;
+    public void getDealerList(){
+        try{
+            cmbDealer.removeAllItems();
+            cmbDealer.addItem("----Select Dealer----");
+            String sql="Select * from Dealer order by dName ASC";
+            pst=conn.prepareStatement(sql);
+            rs=pst.executeQuery();
+            while(rs.next()){
+                cmbDealer.addItem(rs.getString("dName"));
+            }
+            pst.close();
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e,"getDealerList() Exception",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    //Program to reset purchase fields
+    public void resetPurFields(){        
+        txtPurchaseRate.setText("0");
+        txtPurCGSTAmt.setText("0");
+        txtPurSGSTAmt.setText("0");
+        txtPurIGSTAmt.setText("0");
+        txtPurTotAmt.setText("0");
+        cmbPurCGSTRate.setSelectedIndex(0);
+        cmbPurSGSTRate.setSelectedIndex(0);
+        cmbPurIGSTRate.setSelectedIndex(0);
+    }
+    //Program to reset sales fields
+    public void resetSalesFields(){
+        txtQty.setText("0");        
+        txtSalesRate.setText("0");
+        txtSalesCGSTAmt.setText("0");
+        txtSalesSGSTAmt.setText("0");
+        txtSalesIGSTAmt.setText("0");
+        txtSalesTotAmt.setText("0");
+        cmbSalesCGSTRate.setSelectedIndex(0);
+        cmbSalesSGSTRate.setSelectedIndex(0);
+        cmbSalesIGSTRate.setSelectedIndex(0);
+        btnAddProduct.setEnabled(true);
+    }
+	//Program to read Purchase Transactions to find existing invoice no
+    public void readPurTrans(){
+        try{
+            String sql="Select * from PurchaseTransactions where ptInvoiceID='"+txtInvoiceNo.getText()+"'";
+            pst=conn.prepareStatement(sql);
+            rs=pst.executeQuery();
+            if(rs.next()){
+                btnUpdtTrans.setEnabled(true);
+                btnSaveTrans.setEnabled(false);
+            }
+            else{
+                btnUpdtTrans.setEnabled(false);
+                btnSaveTrans.setEnabled(true);
+            }
+            pst.close();
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e,"readPurTrans() Exception",JOptionPane.ERROR_MESSAGE);
+        }
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -52,7 +211,6 @@ public class PurchaseInward extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txtPurIGSTAmt = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        cmbUnit = new javax.swing.JComboBox<>();
         btnUpdtTrans = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         txtHSNCODE = new javax.swing.JTextField();
@@ -101,18 +259,22 @@ public class PurchaseInward extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         cmbDealer = new javax.swing.JComboBox<>();
         btnSaveTrans = new javax.swing.JButton();
+        txtSubQty = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Purchase Inward - The Bookstore");
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
 
-        jPanel1.setBackground(java.awt.Color.gray);
+        jPanel1.setBackground(new java.awt.Color(1, 27, 29));
 
-        jPanel2.setBackground(new java.awt.Color(2, 2, 111));
+        jPanel2.setBackground(new java.awt.Color(1, 27, 29));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Purchase Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), java.awt.Color.yellow)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
@@ -120,6 +282,7 @@ public class PurchaseInward extends javax.swing.JFrame {
         jLabel7.setText("CGST%");
 
         txtPurCGSTAmt.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtPurCGSTAmt.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtPurCGSTAmt.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtPurCGSTAmtFocusGained(evt);
@@ -134,6 +297,7 @@ public class PurchaseInward extends javax.swing.JFrame {
         jLabel8.setText("SGST%");
 
         txtPurSGSTAmt.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtPurSGSTAmt.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtPurSGSTAmt.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtPurSGSTAmtFocusGained(evt);
@@ -148,6 +312,7 @@ public class PurchaseInward extends javax.swing.JFrame {
         jLabel9.setText("IGST%");
 
         txtPurIGSTAmt.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtPurIGSTAmt.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtPurIGSTAmt.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtPurIGSTAmtFocusGained(evt);
@@ -159,18 +324,7 @@ public class PurchaseInward extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         jLabel10.setForeground(java.awt.Color.white);
-        jLabel10.setText("Unit");
-
-        cmbUnit.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        cmbUnit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select Unit--", "brl", "box", "can", "case", "cg", "cl", "cm", "chn", "crt", "ccm", "cdm", "cuf", "cui", "cum", "cmm", "cuy", "dg", "dl", "dm", "doz", "ea ", "ft", "fl", "gal", "grm", "grs", "hun", "in", "kg", "kl", "kt", "knt", "l ", "m", "mt", "mg", "oz", "pc", "ton" }));
-        cmbUnit.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                cmbUnitFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                cmbUnitFocusLost(evt);
-            }
-        });
+        jLabel10.setText("SubQty/Qty");
 
         btnUpdtTrans.setBackground(java.awt.Color.cyan);
         btnUpdtTrans.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
@@ -200,6 +354,7 @@ public class PurchaseInward extends javax.swing.JFrame {
         jLabel16.setText("Sales Rate");
 
         txtSalesRate.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtSalesRate.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtSalesRate.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtSalesRateFocusGained(evt);
@@ -219,6 +374,7 @@ public class PurchaseInward extends javax.swing.JFrame {
         jLabel17.setText("CGST%");
 
         txtSalesCGSTAmt.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtSalesCGSTAmt.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtSalesCGSTAmt.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtSalesCGSTAmtFocusGained(evt);
@@ -233,6 +389,7 @@ public class PurchaseInward extends javax.swing.JFrame {
         jLabel18.setText("SGST%");
 
         txtSalesSGSTAmt.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtSalesSGSTAmt.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtSalesSGSTAmt.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtSalesSGSTAmtFocusGained(evt);
@@ -247,6 +404,7 @@ public class PurchaseInward extends javax.swing.JFrame {
         jLabel19.setText("IGST%");
 
         txtSalesIGSTAmt.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtSalesIGSTAmt.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtSalesIGSTAmt.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtSalesIGSTAmtFocusGained(evt);
@@ -387,6 +545,7 @@ public class PurchaseInward extends javax.swing.JFrame {
         jLabel27.setText("TOTAL");
 
         txtPurTotAmt.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtPurTotAmt.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtPurTotAmt.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtPurTotAmtFocusGained(evt);
@@ -397,6 +556,7 @@ public class PurchaseInward extends javax.swing.JFrame {
         });
 
         txtSalesTotAmt.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtSalesTotAmt.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtSalesTotAmt.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtSalesTotAmtFocusGained(evt);
@@ -498,6 +658,7 @@ public class PurchaseInward extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tblPurInvoice);
 
         txtPurchaseRate.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtPurchaseRate.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtPurchaseRate.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtPurchaseRateFocusGained(evt);
@@ -533,7 +694,7 @@ public class PurchaseInward extends javax.swing.JFrame {
             }
         });
 
-        txtTotalInvoice.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTotalInvoice.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jLabel26.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         jLabel26.setForeground(java.awt.Color.white);
@@ -585,6 +746,21 @@ public class PurchaseInward extends javax.swing.JFrame {
             }
         });
 
+        txtSubQty.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        txtSubQty.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtSubQtyFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSubQtyFocusLost(evt);
+            }
+        });
+        txtSubQty.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSubQtyKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -608,10 +784,10 @@ public class PurchaseInward extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(txtQty, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cmbUnit, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtHSNCODE))
+                                        .addComponent(txtSubQty, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtHSNCODE, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -743,8 +919,7 @@ public class PurchaseInward extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(txtQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10)
-                            .addComponent(cmbUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -759,7 +934,8 @@ public class PurchaseInward extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtPurchaseRate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtSubQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(cmbPurCGSTRate)
@@ -852,6 +1028,7 @@ public class PurchaseInward extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
         obj=null;
+		this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
     private void txtPurCGSTAmtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPurCGSTAmtFocusGained
@@ -877,14 +1054,6 @@ public class PurchaseInward extends javax.swing.JFrame {
     private void txtPurIGSTAmtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPurIGSTAmtFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPurIGSTAmtFocusLost
-
-    private void cmbUnitFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbUnitFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbUnitFocusGained
-
-    private void cmbUnitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbUnitFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbUnitFocusLost
 
     private void btnUpdtTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdtTransActionPerformed
         // TODO add your handling code here:
@@ -1111,6 +1280,31 @@ public class PurchaseInward extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSaveTransActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+		//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        CurrentDate();
+        getNewInvoiceID();
+        getProducts();
+        getGST();
+        getDealerList();
+        resetPurFields();
+        resetSalesFields();
+        readPurTrans();
+    }//GEN-LAST:event_formWindowOpened
+
+    private void txtSubQtyFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSubQtyFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSubQtyFocusGained
+
+    private void txtSubQtyFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSubQtyFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSubQtyFocusLost
+
+    private void txtSubQtyKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSubQtyKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSubQtyKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -1162,7 +1356,6 @@ public class PurchaseInward extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbSalesCGSTRate;
     private javax.swing.JComboBox<String> cmbSalesIGSTRate;
     private javax.swing.JComboBox<String> cmbSalesSGSTRate;
-    private javax.swing.JComboBox<String> cmbUnit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1204,6 +1397,7 @@ public class PurchaseInward extends javax.swing.JFrame {
     private javax.swing.JTextField txtSalesRate;
     private javax.swing.JTextField txtSalesSGSTAmt;
     private javax.swing.JTextField txtSalesTotAmt;
+    private javax.swing.JTextField txtSubQty;
     private javax.swing.JTextField txtTotalInvoice;
     // End of variables declaration//GEN-END:variables
 }
